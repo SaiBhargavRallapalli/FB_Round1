@@ -146,10 +146,10 @@ export default function Hero() {
 
         {/* Stats row */}
         <div
-          className="animate-on-load delay-250"
+          className="animate-on-load delay-250 hero-stats-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+            gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '1px',
             background: 'var(--color-border)',
             border: '1px solid var(--color-border)',

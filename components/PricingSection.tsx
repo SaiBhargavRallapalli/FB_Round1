@@ -230,7 +230,7 @@ export default function PricingSection() {
         </div>
 
         {/* Cards — never re-render on billing/currency changes */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', maxWidth: '1000px', margin: '0 auto' }}>
+        <div className="pricing-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', maxWidth: '1000px', margin: '0 auto' }}>
           {(Object.keys(PRICING_MATRIX) as TierKey[]).map((tierKey) => (
             <PricingCard key={tierKey} tierKey={tierKey} />
           ))}

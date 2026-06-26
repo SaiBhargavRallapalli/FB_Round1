@@ -1,10 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
+  // No static export — let Vercel handle Next.js natively for optimal font loading & performance
 };
 
 export default nextConfig;

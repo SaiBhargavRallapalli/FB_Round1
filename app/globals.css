@@ -44,6 +44,31 @@
   --dur-layout:   350ms;
 }
 
+/* ─── Skip Link (CSS-only, no JS event handlers) ─── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  background: var(--forsythia);
+  color: var(--oceanic-noir);
+  padding: 12px 24px;
+}
+
 /* ─── Base Reset ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -455,7 +480,86 @@ nav a:hover {
 
 /* ─── Focus visible ─── */
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--forsythia);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+/* ─── Overflow guard ─── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* ─── Mobile (< 640px) ─── */
+@media (max-width: 640px) {
+  /* Hero */
+  .hero-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Pricing grid → single column */
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 420px !important;
+  }
+
+  /* Pricing card padding */
+  .pricing-card {
+    padding: 24px 20px;
+  }
+
+  /* Testimonials → single column */
+  .testimonials-masonry {
+    columns: 1 !important;
+  }
+
+  /* Footer grid → single column */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Buttons stack on small screens */
+  .hero-ctas {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .hero-ctas a, .hero-ctas button {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* Section padding reduction */
+  .section-pad {
+    padding: 64px 20px !important;
+  }
+}
+
+/* ─── Tablet (641px – 1023px) ─── */
+@media (min-width: 641px) and (max-width: 1023px) {
+  /* Bento: 2-column layout */
+  .bento-1 { grid-column: span 12 !important; }
+  .bento-2, .bento-3 { grid-column: span 6 !important; }
+  .bento-4, .bento-5, .bento-6 { grid-column: span 4 !important; }
+
+  /* Pricing: 2 cards per row (3rd wraps) */
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ─── Large desktop (> 1280px) ─── */
+@media (min-width: 1280px) {
+  .bento-grid {
+    grid-template-rows: auto auto;
+  }
+}
+
+/* ─── Print / reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -16,7 +16,7 @@ const inter = Inter({
   display: 'swap',
 });
 
-const BASE_URL = 'https://nexusai-platform.vercel.app';
+const BASE_URL = 'https://fb-round1.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
       'Automate intelligence. Accelerate everything. Transform raw data into autonomous workflows with NexusAI.',
     images: [
       {
-        url: '/og-image.png',
+        url: `${BASE_URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: 'NexusAI — AI-Driven Data Automation Platform',
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     title: 'NexusAI — AI-Driven Data Automation Platform',
     description:
       'Automate intelligence. Accelerate everything. NexusAI transforms raw data into autonomous workflows.',
-    images: ['/og-image.png'],
+    images: [`${BASE_URL}/og-image.png`],
     creator: '@nexusai',
   },
   alternates: {
@@ -103,6 +103,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body>
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         {children}
       </body>
     </html>

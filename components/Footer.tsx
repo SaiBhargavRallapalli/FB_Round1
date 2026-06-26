@@ -1,3 +1,5 @@
+'use client';
+
 import { LogoIcon } from './icons';
 
 const FOOTER_LINKS = {

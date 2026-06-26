@@ -78,7 +78,7 @@ export default function Testimonials() {
         </p>
       </div>
 
-      <div style={{ columns: 'auto 340px', gap: '20px' }}>
+      <div className="testimonials-masonry" style={{ columns: 'auto 340px', gap: '20px' }}>
         {TESTIMONIALS.map((t, i) => (
           <article
             key={t.name}
